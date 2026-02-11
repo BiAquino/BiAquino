@@ -14,13 +14,12 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Get total commit contributions via GraphQL
-        id: commits
         env:
           GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
         run: |
           username="${{ github.repository_owner }}"
       
-          query=$(cat <<EOF
+          read -r -d '' query <<EOF
           {
             user(login: "$username") {
               contributionsCollection {
@@ -29,17 +28,22 @@ jobs:
             }
           }
           EOF
-          )
       
-          response=$(curl -s \
-            -H "Authorization: Bearer $GITHUB_TOKEN" \
-            -H "Content-Type: application/json" \
-            -d "{\"query\": \"$query\"}" \
-            https://api.github.com/graphql)
+          response=$(jq -n \
+            --arg query "$query" \
+            '{query: $query}' | \
+            curl -s \
+              -H "Authorization: Bearer $GITHUB_TOKEN" \
+              -H "Content-Type: application/json" \
+              -d @- \
+              https://api.github.com/graphql)
+      
+          echo "$response"
       
           total=$(echo "$response" | jq -r '.data.user.contributionsCollection.totalCommitContributions')
       
           echo "TOTAL=$total" >> $GITHUB_ENV
+
 
       - name: Commit and push changes
         run: |
