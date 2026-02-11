@@ -1,9 +1,5 @@
 ## Bem-vindo(a) ao meu perfil!
 
- <div>
-    <p>![Commits Totais](https://img.shields.io/badge/Total%20Commits-null-blue)</p>
-</div>
-
 <div>
  <p>Prazer em te conhecer!</p> <br>
     <p>Meu nome é Bianca, sou uma nova desenvolvedora!
@@ -13,6 +9,8 @@
      <p>Tenho alguns projetos em desenvolvimento que em breve estarão aqui também!</p>
      <br>    
 </div>
+
+![Commits Totais](https://img.shields.io/badge/Total%20Commits-null-blue)
     
 <div style="display: inline_block"><br>
   <img align="center" alt="Js" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg">
