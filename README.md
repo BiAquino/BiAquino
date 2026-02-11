@@ -1,7 +1,7 @@
 ## Bem-vindo(a) ao meu perfil!
 
  <div>
-    <p>![Commits Totais](https://img.shields.io/badge/Total%20Commits-0-blue)</p>
+    <p>![Commits Totais](https://img.shields.io/badge/Total%20Commits-null-blue)</p>
 </div>
 
 <div>
