@@ -44,6 +44,14 @@ jobs:
       
           echo "TOTAL=$total" >> $GITHUB_ENV
 
+      - name: Debug token presence
+        run: |
+          if [ -z "$GITHUB_TOKEN" ]; then
+            echo "Token is EMPTY"
+          else
+            echo "Token exists"
+          fi
+
 
       - name: Commit and push changes
         run: |
