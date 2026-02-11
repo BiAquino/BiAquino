@@ -1,15 +1,24 @@
 ## Bem-vindo(a) ao meu perfil!
 
  <div>
-   <a href="https://github.com/BiAquino">
-   <img height="180em" src="https://github-readme-stats.vercel.app/api?username=BiAquino&show_icons=true&theme=dracula&include_all_commits=true&count_private=true"/>
-   <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=BiAquino&layout=compact&langs_count=6&theme=dracula"/>
+    <p>![Commits Totais](https://img.shields.io/badge/Total%20Commits-0-blue)</p>
+</div>
+
+<div>
+ <p>Prazer em te conhecer!</p> <br>
+    <p>Meu nome é Bianca, sou uma nova desenvolvedora!
+     <br>
+     Meu foco e preferência estão no front end, mas também tenho mergulhado no mundo do backend usando PHP! </p>
+     <br>
+     <p>Tenho alguns projetos em desenvolvimento que em breve estarão aqui também!</p>
+     <br>    
 </div>
     
 <div style="display: inline_block"><br>
   <img align="center" alt="Js" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg">
   <img align="center" alt="HTML" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg">
   <img align="center" alt="CSS" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg">
+  <img align="center" alt="PHP" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg">
 </div>
  
 <br>
