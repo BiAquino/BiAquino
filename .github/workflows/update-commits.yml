@@ -8,17 +8,16 @@ on:
 jobs:
   update:
     runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
 
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-      - name: Get total commit contributions via GraphQL
-        env:
-          GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+      - name: Get total commit contributions
         run: |
           username="${{ github.repository_owner }}"
-      
+
           read -r -d '' query <<EOF
           {
             user(login: "$username") {
@@ -28,7 +27,7 @@ jobs:
             }
           }
           EOF
-      
+
           response=$(jq -n \
             --arg query "$query" \
             '{query: $query}' | \
@@ -37,23 +36,18 @@ jobs:
               -H "Content-Type: application/json" \
               -d @- \
               https://api.github.com/graphql)
-      
+
           echo "$response"
-      
-          total=$(echo "$response" | jq -r '.data.user.contributionsCollection.totalCommitContributions')
-      
+
+          total=$(echo "$response" | jq -r '.data.user.contributionsCollection.totalCommitContributions // 0')
+
           echo "TOTAL=$total" >> $GITHUB_ENV
 
-      - name: Debug token presence
+      - name: Update README badge
         run: |
-          if [ -z "$GITHUB_TOKEN" ]; then
-            echo "Token is EMPTY"
-          else
-            echo "Token exists"
-          fi
+          sed -i "s/Commits%20Totais-[0-9]*/Commits%20Totais-${TOTAL}/" README.md
 
-
-      - name: Commit and push changes
+      - name: Commit and push
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
