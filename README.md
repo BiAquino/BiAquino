@@ -10,7 +10,7 @@
      <br>    
 </div>
 
-![Commits Totais](https://img.shields.io/badge/Commits%20Totais-null-blue)
+![Commits Totais](https://img.shields.io/badge/Commits%20Totais-16-blue)
     
 <div style="display: inline_block"><br>
   <img align="center" alt="Js" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg">
