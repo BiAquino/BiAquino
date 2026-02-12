@@ -30,7 +30,15 @@ jobs:
 
       - name: Update README badge
         run: |
-          sed -i "s/Commits%20Totais-[^ ]*-blue/Commits%20Totais-${{ env.TOTAL_COMMITS }}-blue/g" README.md
+          
+          if [ "${{ env.TOTAL_COMMITS }}" != "null" ] && [ ! -z "${{ env.TOTAL_COMMITS }}" ]; then
+              echo "Atualizando para ${{ env.TOTAL_COMMITS }}"
+              
+              sed -i "s/Commits%20Totais-[^)]*-blue/Commits%20Totais-${{ env.TOTAL_COMMITS }}-blue/g" README.md
+          else
+              echo "Erro: O valor de TOTAL_COMMITS veio nulo ou vazio."
+              exit 1
+          fi
 
       - name: Commit and push
         run: |
